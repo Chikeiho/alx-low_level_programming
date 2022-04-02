@@ -1,6 +1,5 @@
-main.h
-#ifndef main_FUNC
-#define main_FUNC
+#ifndef MAIN_FUNC
+#define MAIN_FUNC
 
 #include <stdio.h>
 
@@ -25,4 +24,4 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 
-#endif /* main_FUNC */
+#endif /* MAIN_FUNC */
