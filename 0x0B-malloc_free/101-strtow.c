@@ -1,47 +1,67 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
+
 /**
- * _realloc - reallocates old to new, set conditions from problem
- * returning dest w/ size of malloc new_size, set src as ptr
- * @ptr: pointer to memory prev alloc, must free end
- * @old_size: input old
- * @new_size: input new
- * Return: 0
- */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+* ch_free_grid - frees a 2 dimensional array.
+* @grid: multidimensional array of char.
+* @height: height of the array.
+*
+* Return: no return
+*/
+void ch_free_grid(char **grid, unsigned int height)
 {
-	char *dest, *src;
-	unsigned int i;
+if (grid != NULL && height != 0)
+{
+for (; height > 0; height--)
+free(grid[height]);
+free(grid[height]);
+free(grid);
+}
+}
 
-	if (new_size == old_size)
-		return (ptr);
+/**
+* strtow - splits a string into words.
+* @str: string.
+*
+* Return: pointer of an array of integers
+*/
+char **strtow(char *str)
+{
+char **aout;
+unsigned int c, height, i, j, a1;
 
-	if (ptr == NULL)
-	{
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-		{
-			return (NULL);
-		}
-		return (ptr);
-	}
-
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL);
-	}
-
-	dest = malloc(new_size);
-	if (dest == NULL)
-		return (NULL);
-
-	src = ptr;
-
-	for (i = 0; i < new_size && i < old_size; i++)
-		dest[i] = src[i];
-	free(ptr);
-
-	return (dest);
+if (str == NULL || *str == '\0')
+return (NULL);
+for (c = height = 0; str[c] != '\0'; c++)
+if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+height++;
+aout = malloc((height + 1) * sizeof(char *));
+if (aout == NULL || height == 0)
+{
+free(aout);
+return (NULL);
+}
+for (i = a1 = 0; i < height; i++)
+{
+for (c = a1; str[c] != '\0'; c++)
+{
+if (str[c] == ' ')
+a1++;
+if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+{
+aout[i] = malloc((c - a1 + 2) * sizeof(char));
+if (aout[i] == NULL)
+{
+ch_free_grid(aout, i);
+return (NULL);
+}
+break;
+}
+}
+for (j = 0; a1 <= c; a1++, j++)
+aout[i][j] = str[a1];
+aout[i][j] = '\0';
+}
+aout[i] = NULL;
+return (aout);
 }
