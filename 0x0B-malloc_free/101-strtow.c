@@ -1,6 +1,6 @@
+#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 /**
  * _realloc - reallocates old to new, set conditions from problem
  * returning dest w/ size of malloc new_size, set src as ptr
