@@ -2,11 +2,9 @@
 #include <stdlib.h>
 
 /**
- * free_listint2 - frees a listint_t list.
- * @head: double pointer to the list
- *
- * Return: void
- */
+ * free_listint2 - frees a list.
+ * @head: Address of the first node of a list.
+ **/
 void free_listint2(listint_t **head)
 {
 	listint_t *next;
@@ -15,8 +13,8 @@ void free_listint2(listint_t **head)
 		return;
 	while (*head != NULL)
 	{
-		next = (*head)->next;
+		temp = (*head)->next;
 		free(*head);
-		*head = next;
+		*head = temp;
 	}
 }

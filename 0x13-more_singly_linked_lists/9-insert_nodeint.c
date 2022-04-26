@@ -2,41 +2,78 @@
 #include <stdlib.h>
 
 /**
- * insert_nodeint_at_index -  inserts a new node at a given position.
- * @head: double pointer to the first node in the list
- * @idx: index of the node to insert
- * @n: value for new node
- *
- * Return: pointer to the indexed node
- */
+ * insert_nodeint_at_index - Insert a new node at a given positiion.
+ * @head: First node address.
+ * @idx: Position of the new node to be inserted in.
+ * @n: Data of the new node.
+ * Return: Address of the new node.
+ **/
+
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int i;
-	listint_t *current, *new;
+	listint_t *new_node, *temp;
+	unsigned int i = 0;
 
-	if (head == NULL)
+	if (*head == NULL && idx != 0)
 		return (NULL);
+	if (idx != 0)
+	{
+	temp = *head;
+	for (; i < idx - 1 && temp != NULL; i++)
+		temp = temp->next;
+		return (new_node);
+	}
+	new_node->next = temp->next;
+	temp->next = new_node;
+	return (new_node);
+}f (temp == NULL)
+		return (NULL);
+	}
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
 	if (idx == 0)
 	{
-		new->next = *head;
-		*head = new;
-		return (new);
-	}
-	new->next = current->next;
-	curidx != 0)
-	{
-		current = *head;
-		for (i = 0; i < idx - 1 && current != NULL; i++)
-		{
-			current = current->next;
-		}
-		if (current == NULL)
-			return (NULL);
-	}
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
+		new_node->next = *head;
+		*head = new_node;
+	201~#include "lists.h"
+#include <stdlib.h>
+
+/**
+ * insert_nodeint_at_index - Insert a new node at a given positiion.
+ * @head: First node address.
+ * @idx: Position of the new node to be inserted in.
+ * @n: Data of the new node.
+ * Return: Address of the new node.
+ **/
+
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+{
+	listint_t *new_node, *temp;
+	unsigned int i = 0;
+
+	if (*head == NULL && idx != 0)
 		return (NULL);
-	new->n = n;
-	if (rent->next = new;
-	return (new);
+	if (idx != 0)
+	{
+	temp = *head;
+	for (; i < idmalloc(sizeof(listint_t));
+	if (new_node == NULL)
+x - 1 && temp != NULL; i++)
+		temp = temp->next;
+	if (temp == NULL)
+		return (NULL);
+	}
+	new_node = 		return (NULL);
+	new_node->n = n;
+	if (idx == 0)
+	{
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
+	}
+	new_node->next = temp->next;
+	temp->next = new_node;
+	return (new_node);
 }
